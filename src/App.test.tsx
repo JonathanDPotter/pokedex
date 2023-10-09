@@ -4,7 +4,7 @@ import App from "./App";
 
 test("renders learn react link", () => {
   render(<App />);
-  const appDiv = document.querySelector(".app");
+  const header = document.getElementsByTagName("header")[0];
 
-  expect(appDiv).toBeInTheDocument();
+  expect(header).toBeInTheDocument();
 });
