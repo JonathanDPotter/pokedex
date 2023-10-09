@@ -1,6 +1,6 @@
 # Pokédex
 
-This is my version of the TrueCoders Pokédex project. It is intended as a display of our mastery of React, React-Router, and APIs.
+This is my version of the TrueCoders Pokédex project. It is intended as a display of our mastery of React, React-Router, and APIs. There is a working production deployment [here](https://pokedex-delta-mocha.vercel.app/).
 
 ## Technologies used
 
