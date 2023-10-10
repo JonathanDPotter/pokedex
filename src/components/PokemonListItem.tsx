@@ -5,12 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 interface Props {
   pokemon: Pokemon;
+  index: number;
 }
 
-const PokemonListItem: FC<Props> = ({ pokemon }) => {
+const PokemonListItem: FC<Props> = ({ pokemon, index }) => {
   const navigate = useNavigate();
 
-  const even = pokemon.id % 2 === 0;
+  const even = index % 2 === 0;
 
   return (
     <ListItem

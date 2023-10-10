@@ -7,9 +7,6 @@ import {
   Button,
   Radio,
   List,
-  Accordion,
-  AccordionBody,
-  AccordionHeader,
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { Pokemon, Type } from "../interfaces/PokemonResponse.interface";
@@ -83,59 +80,55 @@ const HomePage = () => {
             crossOrigin={undefined}
           />
         </div>
-        <Accordion open={formOpen}>
-          <AccordionHeader onClick={() => setFormOpen((prev) => !prev)}>
-            <h2>Filter Pokemon</h2>
-          </AccordionHeader>
-          <AccordionBody>
-            <form className="flex flex-col gap-4 max-w-[500px] mx-auto">
-              <Input
-                label="Search Names"
-                variant="standard"
-                value={text}
-                onChange={(e) => setText(e.currentTarget.value)}
-                crossOrigin={undefined}
-              />
-              <Select
-                variant="standard"
-                label="Type"
-                // @ts-ignore
-                onChange={(value) => setType(value ? value : Type.Any)}
-                value={type.toString()}
-              >
-                {Object.keys(Type).map((key) => (
-                  // @ts-ignore
-                  <Option key={`searchType${Type[key]}`} value={Type[key]}>
-                    {key}
-                  </Option>
-                ))}
-              </Select>
-              <Select
-                variant="standard"
-                label="Weakness"
-                // @ts-ignore
-                onChange={(value) => setWeakness(value ? value : Type.Any)}
-                value={weakness.toString()}
-              >
-                {Object.keys(Type).map((key) => (
-                  // @ts-ignore
-                  <Option key={`searchType${Type[key]}`} value={Type[key]}>
-                    {key}
-                  </Option>
-                ))}
-              </Select>
-              <Button onClick={clearForm} color="indigo">
-                Clear Filters
-              </Button>
-            </form>
-          </AccordionBody>
-        </Accordion>
+        <form className="flex flex-col gap-4 max-w-[500px] mx-auto">
+          <Input
+            label="Search Names"
+            variant="standard"
+            value={text}
+            onChange={(e) => setText(e.currentTarget.value)}
+            crossOrigin={undefined}
+          />
+          <Select
+            variant="standard"
+            label="Type"
+            // @ts-ignore
+            onChange={(value) => setType(value ? value : Type.Any)}
+            value={type.toString()}
+          >
+            {Object.keys(Type).map((key) => (
+              // @ts-ignore
+              <Option key={`searchType${Type[key]}`} value={Type[key]}>
+                {key}
+              </Option>
+            ))}
+          </Select>
+          <Select
+            variant="standard"
+            label="Weakness"
+            // @ts-ignore
+            onChange={(value) => setWeakness(value ? value : Type.Any)}
+            value={weakness.toString()}
+          >
+            {Object.keys(Type).map((key) => (
+              // @ts-ignore
+              <Option key={`searchType${Type[key]}`} value={Type[key]}>
+                {key}
+              </Option>
+            ))}
+          </Select>
+          <Button onClick={clearForm} color="indigo">
+            Clear Filters
+          </Button>
+        </form>
       </section>
       <section className="flex flex-wrap justify-center gap-4">
         {viewAs === View.List ? (
           <List>
-            {filteredList.map((pokemon) => (
-              <PokemonListItem key={`pokemon${pokemon.id}`} {...{ pokemon }} />
+            {filteredList.map((pokemon, index) => (
+              <PokemonListItem
+                key={`pokemon${pokemon.id}`}
+                {...{ pokemon, index }}
+              />
             ))}
           </List>
         ) : (

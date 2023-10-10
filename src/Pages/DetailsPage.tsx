@@ -53,11 +53,12 @@ const PokemonDetailsPage = () => {
               pokemon.prev_evolution.length > 1 ? "s" : ""
             }:`}</h3>
             <List>
-              {pokemon.prev_evolution.map((evolution) => (
+              {pokemon.prev_evolution.map((evolution, index) => (
                 <PokemonListItem
                   pokemon={
                     pokemonList.find((item) => item.num === evolution.num)!
                   }
+                  {...{ index }}
                 />
               ))}
             </List>
@@ -70,11 +71,12 @@ const PokemonDetailsPage = () => {
               pokemon.next_evolution.length > 1 ? "s" : ""
             }:`}</h3>
             <List>
-              {pokemon.next_evolution.map((evolution) => (
+              {pokemon.next_evolution.map((evolution, index) => (
                 <PokemonListItem
                   pokemon={
                     pokemonList.find((item) => item.num === evolution.num)!
                   }
+                  {...{ index }}
                 />
               ))}
             </List>
