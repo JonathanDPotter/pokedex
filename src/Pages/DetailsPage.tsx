@@ -12,9 +12,6 @@ const PokemonDetailsPage = () => {
 
   const pokemon = pokemonList.find((mon) => mon.id === parseInt(id!))!;
 
-  console.log(pokemon.prev_evolution);
-  console.log(pokemon.next_evolution);
-
   const classList = "capitalize bg-white p-2";
 
   return (
@@ -109,21 +106,3 @@ const PokemonDetailsPage = () => {
   );
 };
 export default PokemonDetailsPage;
-
-//   id: number;
-//   num: string;
-//   name: string;
-//   img: string;
-//   type: Type[];
-//   height: string;
-//   weight: string;
-//   candy: string;
-//   candy_count?: number;
-//   egg: Egg;
-//   spawn_chance: number;
-//   avg_spawns: number;
-//   spawn_time: string;
-//   multipliers: number[] | null;
-//   weaknesses: Type[];
-//   next_evolution?: Evolution[];
-//   prev_evolution?: Evolution[];

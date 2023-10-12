@@ -19,9 +19,10 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
   return (
     <Card
       key={`pokemon${pokemon.id}`}
-      className="border border-black flex flex-col justify-between w-[300px]"
+      className="border border-black flex flex-col justify-between w-[300px] cursor-pointer hover:bg-blue-gray-50"
+      onClick={() => navigate(`/pokemon/${pokemon.id}`)}
     >
-      <CardHeader className="m-0 p-2 text-center rounded-b-none">
+      <CardHeader className="m-0 p-2 text-center rounded-b-none bg-red-200 text-black">
         <h2>
           {pokemon.name} {pokemon.num}
         </h2>
@@ -32,9 +33,6 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
       <CardFooter className="flex flex-col gap-4">
         <p>Type: {pokemon.type.join(", ")}</p>
         <p>Weaknesses: {pokemon.weaknesses.join(", ")}</p>
-        <Button onClick={() => navigate(`/pokemon/${pokemon.id}`)} color="indigo">
-          Details
-        </Button>
       </CardFooter>
     </Card>
   );

@@ -11,21 +11,16 @@ import {
 import { useEffect, useState } from "react";
 import { Pokemon, Type } from "../interfaces/PokemonResponse.interface";
 import api from "../api";
-
-enum View {
-  List = "List",
-  Cards = "Cards",
-}
+import { View, useViewAs } from "../context/viewAs.context";
 
 const HomePage = () => {
   const [filteredList, setFilteredList] = useState<Pokemon[]>([]);
   const [text, setText] = useState("");
   const [type, setType] = useState<Type>(Type.Any);
   const [weakness, setWeakness] = useState<Type>(Type.Any);
-  const [viewAs, setViewAs] = useState(View.List);
-  const [formOpen, setFormOpen] = useState(false);
 
   const { pokemonList, setPokemonList } = usePokemon();
+  const { viewAs, setViewAs } = useViewAs();
 
   const clearForm = () => {
     setText("");

@@ -3,11 +3,9 @@ import {
   SetStateAction,
   createContext,
   useContext,
-  useEffect,
   useState,
 } from "react";
 import { Pokemon } from "../interfaces/PokemonResponse.interface";
-import api from "../api";
 
 interface PokemonContext {
   pokemonList: Pokemon[];
